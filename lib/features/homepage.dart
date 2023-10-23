@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liftutech_assignment/widgets/Customtextformfield.dart';
 import 'package:liftutech_assignment/widgets/displaycontainer.dart';
 
 class HomePage extends StatelessWidget {
@@ -35,18 +36,10 @@ class HomePage extends StatelessWidget {
         color: bodyColor,
       child: Column(
       children: [
-        TextFormField(
-          decoration: InputDecoration(
-            hintText: 'Search for brand',
-            prefixIcon: const Icon(Icons.search),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide.none
-            ),
-            fillColor: Colors.grey[200],
-            filled: true
-          ),
-        ),
+       customTextForm(
+        fieldIcon: Icons.search,
+        texthint: "Search for brand",
+       ),
         displayContainer(),
       ],
       ),

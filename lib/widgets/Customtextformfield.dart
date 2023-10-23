@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 
 class customTextForm extends StatelessWidget {
-  const customTextForm({super.key});
+  final String texthint;
+  final IconData fieldIcon;
+  const customTextForm(
+      {super.key, required this.texthint, required this.fieldIcon});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return TextFormField(
+      decoration: InputDecoration(
+          hintText: texthint,
+          prefixIcon: Icon(fieldIcon),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide.none),
+          fillColor: Colors.grey[200],
+          filled: true),
+    );
   }
 }
