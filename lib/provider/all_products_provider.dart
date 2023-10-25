@@ -11,8 +11,13 @@ class allProductsProvider extends ChangeNotifier {
   Future<void> getAllProducts() async {
     allProductsLoading = true;
     notifyListeners();
+    try {
     final response = await _service.getAll();
+    print("Response data: $response");
     _allproducts = response;
+    } catch (e) {
+       print('Error: $e');
+    }
     allProductsLoading = false;
     notifyListeners();
   }

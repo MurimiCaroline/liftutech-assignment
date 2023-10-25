@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:liftutech_assignment/features/homepage.dart';
-import 'package:liftutech_assignment/model/all_products.dart';
 import 'package:liftutech_assignment/provider/all_products_provider.dart';
 import 'package:provider/provider.dart';
 
