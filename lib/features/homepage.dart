@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liftutech_assignment/provider/all_products_provider.dart';
+import 'package:liftutech_assignment/widgets/Customtextformfield.dart';
+import 'package:liftutech_assignment/widgets/display_data_consumer.dart';
+import 'package:liftutech_assignment/widgets/displaycontainer.dart';
 // import 'package:liftutech_assignment/widgets/Customtextformfield.dart';
 // import 'package:liftutech_assignment/widgets/displaycontainer.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +18,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-     await  Provider.of<allProductsProvider>(context, listen: false).getAllProducts();
+      await Provider.of<allProductsProvider>(context, listen: false)
+          .getAllProducts();
     });
   }
 
@@ -54,42 +58,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Consumer<allProductsProvider>(
-        builder: (context, value, child) {
-          final allproducts = value.allproducts;
-          if (value.allProductsLoading) {
-            return const Center(
-                child: CircularProgressIndicator(
-              backgroundColor: Colors.amberAccent,
-              semanticsLabel: "Loading",
-            ));
-          }else if (allproducts.isEmpty) {
-      return Center(
-        child: Text("No products found. Please check your internet connection."),
-      );} else {
-            return ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: allproducts.length,
-                itemBuilder: (context, index) {
-                  final allproduct = allproducts[index];
-                  return Text(allproduct.description ?? "no description");
-                });
-          }
-        },
+      body: const Column(
+        children: [
+          customTextForm(texthint: "Search", fieldIcon: Icons.search),
+          Expanded(child: displayContainer()),
+        ],
       ),
-      // Container(
-      //   padding: const EdgeInsets.all(8.0),
-      //   color: bodyColor,
-      // child: const Column(
-      // children: [
-      //  customTextForm(
-      //   fieldIcon: Icons.search,
-      //   texthint: "Search for brand",
-      //  ),
-      //   displayContainer(),
-      // ],
-      // ),
-      // ),
     );
   }
 }
