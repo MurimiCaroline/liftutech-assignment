@@ -74,9 +74,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 20,
           ),
-          SizedBox(
-            height: deviceHeight*0.05,
-            child: CustomItemRow()),
+          SizedBox(height: deviceHeight * 0.06, child: CustomItemRow()),
           Row(
             children: [
               Text(
@@ -96,14 +94,18 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: itemContainer(
               deviceHeight: deviceHeight,
-              deviceWidth: deviceWidth,
+              deviceWidth: deviceWidth*0.6,
               itemTitle: "Item 1",
-              itemDescription: "Description goes here,  we are happy and happy and happy and happy  and happy ",),
+              itemDescription:
+                  "Description goes here,  we are happy and happy and happy and happy  and happy ",
+            ),
           ),
         ],
       ),

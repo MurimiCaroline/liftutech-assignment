@@ -18,22 +18,24 @@ class itemContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: deviceHeight * 0.3,
-      width: deviceWidth * 0.4,
+      width: deviceWidth * 0.7,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white10,
+        color: Colors.grey.shade300,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: deviceHeight * 0.18,
-            width: deviceWidth * 0.6,
-            decoration: BoxDecoration(
-              color: Colors.blueGrey.shade300,
-              image: DecorationImage(
-                image: AssetImage('assets/images/clock.jpg'),
-                fit: BoxFit.contain,
+          Center(
+            child: Container(
+              height: deviceHeight * 0.18,
+              width: deviceWidth * 0.65,
+              decoration: BoxDecoration(
+                color: Colors.blueGrey.shade300,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/clock.jpg'),
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             ),
           ),
